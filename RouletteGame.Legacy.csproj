@@ -46,9 +46,16 @@
     <Compile Include="EvenOddBet.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="FieldBet.cs" />
+    <Compile Include="FieldsFactory.cs" />
+    <Compile Include="IBet.cs" />
+    <Compile Include="IFieldsFactory.cs" />
+    <Compile Include="IRandomNumberGeneration.cs" />
+    <Compile Include="IRoulette.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RandomNumberGeneration.cs" />
     <Compile Include="Roulette.cs" />
     <Compile Include="RouletteGame.cs" />
+    <Compile Include="RouletteGameException.cs" />
     <Compile Include="RouletteGameTestApplication.cs" />
   </ItemGroup>
   <ItemGroup>

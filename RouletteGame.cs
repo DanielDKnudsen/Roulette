@@ -5,13 +5,13 @@ namespace RouletteGame.Legacy
 {
     public class RouletteGame
     {
-        private readonly List<Bet> _bets;
-        private readonly Roulette _roulette;
+        private readonly List<IBet> _bets;
+        private readonly IRoulette _roulette;
         private bool _roundIsOpen;
 
-        public RouletteGame(Roulette roulette)
+        public RouletteGame(IRoulette roulette, List<IBet> bets)
         {
-            _bets = new List<Bet>();
+            _bets = bets;
             _roulette = roulette;
         }
 
@@ -36,7 +36,7 @@ namespace RouletteGame.Legacy
         public void SpinRoulette()
         {
             Console.Write("Spinning...");
-            _roulette.Spin();
+            _roulette.Spin(_roulette.GenerateRandomNumber(0, 37));
             Console.WriteLine("Result: {0}", _roulette.GetResult());
         }
 
@@ -50,13 +50,6 @@ namespace RouletteGame.Legacy
                 if (won > 0)
                     Console.WriteLine("{0} just won {1}$ on a {2}", bet.PlayerName, won, bet);
             }
-        }
-    }
-
-    public class RouletteGameException : Exception
-    {
-        public RouletteGameException(string s) : base(s)
-        {
         }
     }
 }
